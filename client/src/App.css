@@ -1,0 +1,643 @@
+html {
+  background-color: #1b1b1b;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  color: #ffffff;
+  font-family: "helvetica";
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="time"]:hover, input[type="date"]:hover {
+  cursor: text;
+}
+
+input[type="color"]:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+input[type="color"]:active {
+  opacity: 50%;
+}
+
+select:hover {
+  cursor: pointer
+}
+
+select:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 80%;
+}
+
+button:active {
+  opacity: 50%;
+}
+
+.ActivityStatusBar * {
+  font-size: 1.2rem;
+}
+
+.ActivityStatusBar {
+  align-items: center;
+  border-bottom: 3px solid #2b2b2b;
+  height: 5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ActivityStatusBar--noActivity {
+  background-color: #1b1b1b;
+  display: flex;
+}
+
+.ActivityStatusBar--activityRunning {
+  background-color: #2b2b2b;
+}
+
+.ActivityStatusBar__InputBubble {
+  background-color: #6d6d6d;
+  border: none;
+  border-radius: 200px;
+  height: 45%;
+  padding: 1rem;
+}
+
+.ActivityStatusBar__InputBubble::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.ActivityStatusBar__ActivityNameInputBubble {
+  width: 45%;
+}
+
+.ActivityStatusBar__SelectInput {
+  border: none;
+  border-radius: 200px;
+  height: 45%;
+  padding-left: 0.7rem;
+}
+
+.ActivityStatusBar__CategoryNameSelectInput {
+  width: 30%;
+}
+
+.ActivityStatusBar__CategoryNameSelectInput--noActivity {
+  background-color: #6d6d6d;
+}
+
+.ActivityStatusBar__CategoryNameSelectInput--noActivity:hover {
+  background-color: rgba(109, 109, 109, 0.8);
+}
+
+.ActivityStatusBar__CategoryNameSelectInput--activityRunning {
+  background-color: #2b2b2b;
+}
+
+.ActivityStatusBar__CategoryButton {
+  width: auto;
+}
+
+.ActivityStatusBar__CategoryButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.ActivityStatusBar__CategoryButton:active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.ActivityStatusBar__StatusButton {
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 100%;
+  display: flex;
+  height: 40%;
+  justify-content: center;
+  text-align: center;
+}
+
+.ActivityStatusBar__StartActivityStatusButton {
+  background-color: #00e676;
+}
+
+.ActivityStatusBar__StopActivityStatusButton {
+  background-color: #ff1744;
+}
+
+.ActivityStatusBar__NameAndCategorySpan {
+  display: flex;
+  width: 55%;
+}
+
+.ActivityStatusBar__TextInput {
+  background-color: #2b2b2b;
+  border: none;
+}
+
+.ActivityStatusBar__ActivityNameTextInput {
+  width: 70%;
+}
+
+.ActivityStatusBar__CategoryNameTextInput {
+  width: 30%;
+}
+
+.ActivityStatusBar__TimeAndDurationSpan {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+
+.Body {
+  display: flex;
+}
+
+.PrimaryPane {
+  background-color: #1b1b1b;
+  border-right: 3px solid #2b2b2b;
+  height: calc(100vh - 5rem);
+  width: 60%;
+  overflow: scroll;
+}
+
+.TimeEntriesList {
+  font-size: 0.9rem;
+}
+
+.TimeEntryHeader {
+  background-color: #424242;
+  border-bottom: 1px solid #2b2b2b;
+  margin: 0;
+  padding: 0.2rem 2.5rem;
+}
+
+.TimeEntryHeader:hover {
+  background-color:rgba(140, 140, 140, 0.5);
+}
+
+.TimeEntryHeader:active {
+  background-color: rgba(140, 140, 140, 0.2);
+}
+
+.TimeEntryHeader--selected {
+  background-color: rgba(140, 140, 140, 0.9);
+}
+
+.TimeEntryHeader--selected:hover {
+  background-color: rgba(140, 140, 140, 0.9);
+}
+
+.TimeEntryHeader--selected:active {
+  background-color: rgba(140, 140, 140, 0.9);
+}
+
+.TimeEntry {
+  border-bottom: 1px solid #2b2b2b;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.TimeEntry:hover {
+  background-color:rgba(43, 43, 43, 0.4);
+}
+
+.TimeEntry:active {
+  background-color: rgba(43, 43, 43, 0.2);
+}
+
+.TimeEntry--selected {
+  background-color:rgba(43, 43, 43, 0.8);
+}
+
+.TimeEntry--selected:hover {
+  background-color:rgba(43, 43, 43, 0.8);
+}
+
+.TimeEntry--selected:active {
+  background-color:rgba(43, 43, 43, 0.8);
+}
+
+.TimeEntry__NameAndCategorySpan {
+  align-items: center;
+  display: flex;
+  width: 60%;
+}
+
+.TimeEntry__NameAndCategoryText {
+  margin-right: 1rem;
+  max-height: 1.2rem;
+  overflow: visible;
+}
+
+.TimeEntry__TimeAndDurationSpan {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 38%;
+}
+
+.TimeEntry__TimeText {
+  text-align: right;
+  width: 60%;
+}
+
+.SecondaryPane * {
+  font-size: 1rem;
+}
+
+.SecondaryPane {
+  background-color: #1b1b1b;
+  height: calc(100vh - 5rem);
+  padding: 2rem;
+  width: 40%;
+}
+
+.SecondaryPane__InputBubble {
+  background-color: #6d6d6d;
+  border: none;
+  border-radius: 100px;
+  height: 2rem;
+  padding: 0 1rem;
+}
+
+.SecondaryPane__InputBubble::placeholder {
+  color: #ffffff;
+  opacity: 0.4;
+}
+
+.SecondaryPane__SelectInput {
+  background-color: #6d6d6d;
+  border: none;
+  border-radius: 100px;
+  height: 2rem;
+  padding-left: 0.7rem;
+}
+
+.SecondaryPane__SelectInput {
+  outline: none;
+}
+
+.SecondaryPane__Button {
+  background-color: #6d6d6d;
+  border: none;
+  border-radius: 100px;
+  padding: 0.5rem 0;
+}
+
+.SecondaryPane__Button:disabled {
+  opacity: 0.1;
+}
+
+.SecondaryPane__Button--dangerRed {
+  background-color: #ff1744;
+}
+
+.SecondaryPane__Button--successGreen {
+  background-color: #00e676;
+}
+
+.SecondaryPane__ColorSelector {
+  background-color: #6d6d6d;
+  border: none;
+  border-radius: 2px;
+  height: 2rem;
+  width: 2rem;  
+}
+
+.Statistics * {
+  font-size: 1.5rem;
+}
+
+.Statistics {
+  border-bottom: 1px solid #2b2b2b;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.Statistics__DayText {
+  margin: 1rem 0;
+}
+
+.Statistics__DoughnutContainer {
+  padding: 4rem 3rem 3rem;
+}
+
+.Statistic {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.Statistic__Text {
+  width: 40%;
+  margin: 0 0.5rem;
+}
+
+.Statistic__ValueText {
+  text-align: right;
+}
+
+.Statistic__NameText {
+  text-align: left;
+}
+
+.EditTimeEntryForm {
+  padding-top: 3rem;
+}
+
+.EditTimeEntryForm__InputRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.EditTimeEntryForm__InputRow--lastRow {
+  margin-bottom: 0;
+}
+
+.EditTimeEntryForm__LastRow {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.EditTimeEntryForm__Icon {
+  margin-right: 1rem;
+}
+
+.EditTimeEntryForm__InputBubble--large {
+  width: calc(100% - 2rem);
+}
+
+.EditTimeEntryForm__InputBubble--small {
+  margin-right: 1rem;
+  width: 10rem;
+}
+
+.EditTimeEntryForm__CategoryNameSelectInput {
+  width: calc(100% - 2rem);
+}
+
+.EditTimeEntryForm__CategoryNameSelectInput:hover {
+  background-color: rgba(109, 109, 109, 0.8);
+}
+
+.EditTimeEntryForm__DurationText {
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  justify-content: flex-end;
+  padding-left: 1rem;
+  margin: 0px;
+}
+
+.EditTimeEntryForm__ButtonsRow {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.EditTimeEntryForm__Button {
+  width: 30%;
+}
+
+.StatusMessageText {
+  font-size: 1.5rem;
+  margin: 5rem 2rem;
+  text-align: center;
+}
+
+.CategoryList {
+  padding: 2rem 5rem 0;
+  margin-top: 0rem;
+}
+
+.CategoryRow {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.CategoryRow__ColorAndNameSpan {
+  display: flex;
+}
+
+.CategoryRow__ColorCircle {
+  border-radius: 100px;
+  height: 1.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 1rem;
+  width: 1.5rem;
+}
+
+.CategoryRow__EditButton {
+  border-radius: 2px;
+  padding: 0.1rem;
+}
+
+.CategoryRow__EditButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.CategoryRow__EditButton:active {
+  background-color:rgba(255, 255, 255, 0.05);
+}
+
+.CategoryList__AddNewCategoryButton {
+  display: block;
+  margin: 2rem auto 0;
+  width: 50%;
+}
+
+.AddNewCategoryForm {
+  padding-top: 3rem;
+}
+
+.AddNewCategoryForm__Icon {
+  margin-right: 1rem;
+}
+
+.AddNewCategoryForm__InputRow {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.AddNewCategoryForm__CategoryNameInputBubble {
+  width: 60%
+}
+
+.AddNewCategoryForm__CategoryColorSelector {
+  margin-left: 1rem;
+}
+
+.AddNewCategoryForm__AddNewCategoryButton {
+  display: block;
+  margin: auto;
+  width: 40%;
+  margin-top: 3rem;
+}
+
+.EditCategoryForm {
+  padding-top: 3rem;
+}
+
+.EditCategoryForm__Icon {
+  margin-right: 1rem;
+}
+
+.EditCategoryForm__InputRow {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.EditCategoryForm__CategoryNameInputBubble {
+  width: 60%;
+}
+
+.EditCategoryForm__CategoryColorSelector {
+  margin-left: 1rem;
+}
+
+.EditCategoryForm__ButtonsRow {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.EditCategoryForm__Button {
+  width: 30%;
+}
+
+@media only screen and (min-width: 1440px) {
+  .PrimaryPane {
+    width: calc(100vw - 580px);
+  }
+
+  .SecondaryPane {
+    width: 580px;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  #App {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ActivityStatusBar {
+    border-left: 3px solid #2b2b2b;
+    border-right: 3px solid #2b2b2b;
+    width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .PrimaryPane {
+    border-left: 3px solid #2b2b2b;
+    width: 1420px;
+    margin-left: auto;
+  }
+
+  .SecondaryPane {
+    border-right: 3px solid #2b2b2b;
+    width: 580px;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .Body {
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 5rem);
+  }
+
+  .PrimaryPane {
+    border-right: none;
+    border-bottom: 3px solid #2b2b2b;
+    height: 60%;
+    width: 100%;
+  }
+
+  .SecondaryPane {
+    height: 40%;
+    overflow: scroll;
+    padding: 0.5rem 10rem 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .SecondaryPane {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .TimeEntry {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .SecondaryPane {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .SecondaryPane {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .EditTimeEntryForm {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .CategoryList {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
