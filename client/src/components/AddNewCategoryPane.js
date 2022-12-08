@@ -4,6 +4,9 @@ import { useState } from "react";
 // Import icons
 import { NotePencil } from "phosphor-react";
 
+// Load environment variables
+const API_URL = process.env.REACT_APP_API_URL;
+
 function AddNewCategoryPane({
   showStatusMessage,
   refetchData
@@ -31,7 +34,7 @@ function AddNewCategoryPane({
     const newCategory = { ...form };
 
     // POST request to create new category record
-    await fetch("http://localhost:5000/categories/add", {
+    await fetch(`${API_URL}/categories/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
