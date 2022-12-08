@@ -20,6 +20,9 @@ import {
   List,
 } from "phosphor-react"
 
+// Load environment variables
+const API_URL = process.env.REACT_APP_API_URL;
+
 function ActivityStatusBar({
   categories,
   refetchData,
@@ -75,7 +78,7 @@ function ActivityStatusBar({
     const newTimeEntry = { ...form };
 
     // POST request to create new time entry record
-    await fetch("http://localhost:5000/time-entries/add", {
+    await fetch(`${API_URL}/time-entries/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

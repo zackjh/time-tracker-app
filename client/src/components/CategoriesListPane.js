@@ -7,6 +7,9 @@ import {
 // Import icons
 import { Gear } from "phosphor-react";
 
+// Load environment variables
+const API_URL = process.env.REACT_APP_API_URL;
+
 function CategoriesListPane({
   handleAddNewCategoryButtonClick,
   handleEditCategoryButtonClick
@@ -18,7 +21,7 @@ function CategoriesListPane({
   useEffect(() => {
     async function getCategories() {
       // GET request to retrieve categories
-      const response = await fetch(`http://localhost:5000/categories`);
+      const response = await fetch(`${API_URL}/categories`);
       if (!response.ok) {
         alert(`An error occurred: ${response.statusText}`);
         return;

@@ -8,6 +8,9 @@ import {
 // Import icons
 import { NotePencil } from "phosphor-react";
 
+// Load environment variables
+const API_URL = process.env.REACT_APP_API_URL;
+
 function EditCategoryPane({
   _id,
   showStatusMessage,
@@ -26,7 +29,7 @@ function EditCategoryPane({
   useEffect(() => {
     async function getCategory() {
       // GET request to retrieve the category with the selected id
-      const response = await fetch(`http://localhost:5000/categories/${_id}`);
+      const response = await fetch(`${API_URL}/categories/${_id}`);
       if (!response.ok) {
         alert(`An error occurred: ${response.statusText}`);
         return;
@@ -65,7 +68,7 @@ function EditCategoryPane({
       const updatedCategory = { ...form };
 
       // POST request to update category record with specified category id
-      await fetch(`http://localhost:5000/categories/update/${form._id}`, {
+      await fetch(`${API_URL}/categories/update/${form._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -83,7 +86,7 @@ function EditCategoryPane({
       // User wants to delete category
 
       // DELETE request to delete category record with specified category id
-      await fetch(`http://localhost:5000/categories/${form._id}`, {
+      await fetch(`${API_URL}/categories/${form._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"
@@ -95,7 +98,7 @@ function EditCategoryPane({
       })
 
       // POST request to update time entries that have the deleted category 
-      await fetch(`http://localhost:5000/time-entries/categoryDeleted/${form._id}`, {
+      await fetch(`${API_URL}/time-entries/categoryDeleted/${form._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -23,6 +23,9 @@ import { formatDateForKey } from "./helpers";
 // Import stylesheet
 import "./App.css";
 
+// Load environment variables
+const API_URL = process.env.REACT_APP_API_URL;
+
 function App() {
   // Unix timestamp of when data was last fetched from the server
   const [lastUpdated, setLastUpdated] = useState(Date.now());
@@ -46,7 +49,7 @@ function App() {
   useEffect(() => {
     async function getTimeEntries() {
       // GET request to retrieve time entries
-      const response = await fetch("http://localhost:5000/time-entries");
+      const response = await fetch(`${API_URL}/time-entries`);
       if (!response.ok) {
         alert(`An error occurred: ${response.statusText}`);
         return;
@@ -76,7 +79,7 @@ function App() {
   useEffect(() => {
     async function getCategories() {
       // GET request to retrieve categories
-      const response = await fetch("http://localhost:5000/categories");
+      const response = await fetch(`${API_URL}/categories`);
       if (!response.ok) {
         alert(`An error occurred: ${response.statusText}`);
         return;

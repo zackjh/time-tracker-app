@@ -23,6 +23,9 @@ import {
   Clock
 } from "phosphor-react"
 
+// Load environment variables
+const API_URL = process.env.REACT_APP_API_URL;
+
 function EditTimeEntryPane({
   _id,
   categories,
@@ -42,7 +45,7 @@ function EditTimeEntryPane({
   useEffect(() => {
     async function getTimeEntry() {
       // GET request to retrieve time entry with the selected id
-      const response = await fetch(`http://localhost:5000/time-entries/${_id}`);
+      const response = await fetch(`${API_URL}/time-entries/${_id}`);
       if (!response.ok) {
         alert(`An error occurred: ${response.statusText}`);
         return;
@@ -94,7 +97,7 @@ function EditTimeEntryPane({
       };
 
       // POST request to update time entry record with specified id
-      await fetch(`http://localhost:5000/time-entries/update/${form._id}`, {
+      await fetch(`${API_URL}/time-entries/update/${form._id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -112,7 +115,7 @@ function EditTimeEntryPane({
       // User wants to delete time entry
 
       // DELETE request to delete time entry record with specified id
-      await fetch(`http://localhost:5000/time-entries/${form._id}`, {
+      await fetch(`${API_URL}/time-entries/${form._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json"
